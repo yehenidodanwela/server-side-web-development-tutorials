@@ -9,6 +9,14 @@
             <a style='text-decoration:none' href='index.php'> 
                 <img src="homteq_logo.png" height = "130" width = "300"> 
             </a> 
+            <?php
+                if (isset($_SESSION['userId'])) {
+                    echo "<div id='userdetails'>";
+                    echo "<div><b>".htmlspecialchars($_SESSION['userFName'], ENT_QUOTES)." ".htmlspecialchars($_SESSION['userSName'], ENT_QUOTES)."</b><br>";
+                    echo htmlspecialchars($_SESSION['userEmail'], ENT_QUOTES)."</div>";
+                    echo "</div>";
+                }
+            ?>
             <h3><?php echo "London, ".date('l d F Y G:i:s');?> </h3> 
         </div> 
         <div id='navigation'> 
@@ -21,7 +29,14 @@
                 </div> 
                 <div> 
                     <li><a href='basket.php'>Smart Basket</a></li> 
-                    <li><a href='login.php'>Staff Login</a></li> 
+                    <?php
+                        if (isset($_SESSION['userId'])) {
+                            echo "<li><a href='logout.php'>Logout</a></li>";
+                        }
+                        else {
+                            echo "<li><a href='login.php'>Staff Login</a></li>";
+                        }
+                    ?>
                 </div> 
             </ul> 
         </div> 

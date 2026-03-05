@@ -1,4 +1,8 @@
 <?php 
+if (session_status() === PHP_SESSION_NONE) {
+	session_start();
+}
+
 $pageName="template";                   //Create and populate a variable called $pageName 
 echo "<link rel=stylesheet type=text/css href=mystylesheet.css>";   //Call in stylesheet 
  

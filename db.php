@@ -18,6 +18,5 @@ if (!$conn)
 else{
 //select the database 
 mysqli_select_db($conn, $dbname);
-echo "connected";
 }
 ?>
